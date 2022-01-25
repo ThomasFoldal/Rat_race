@@ -10,6 +10,11 @@ namespace Rat_race
     {
         public string Name;
         private int _position;
+        public Rat(string name)
+        {
+            Name = name;
+            ResetRat();
+        }
         public int Position
         {
             get { return _position; }
