@@ -22,7 +22,7 @@ namespace Rat_race
         // TK
         public void PlaceBet(int bet)
         {
-            Bets.Add(bet);
+            Money -= bet;
         }
 
     }

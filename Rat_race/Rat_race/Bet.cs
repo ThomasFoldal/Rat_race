@@ -20,6 +20,7 @@ namespace Rat_race
             _race = race;
             _rat = rat;
         }
+
         //TK
         public void PayWinner()
         {
