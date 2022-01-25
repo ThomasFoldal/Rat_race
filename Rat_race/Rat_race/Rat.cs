@@ -10,7 +10,11 @@ namespace Rat_race
     {
         public string Name;
         private int _position;
-        public int Position { get; set; }
+        public int Position
+        {
+            get { return _position; }
+            set { if (_position != value) { _position = value; Console.WriteLine("position has changed"); } } 
+        }
 
         public void ResetRat()
         {
@@ -18,8 +22,8 @@ namespace Rat_race
         }
         public int MoveRat()
         {
-            _position = RNG.Range(0, 5);
-            Position += _position;
+            _position += RNG.Range(0, 5);
+            return _position;
         }
     }
 }
