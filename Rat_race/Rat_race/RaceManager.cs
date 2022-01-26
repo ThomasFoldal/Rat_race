@@ -35,6 +35,10 @@ namespace Rat_race
         public void CunductRace(Race race)
         {
             race.ConductRace();
+            foreach (Bet bet in Bookmaker.Bets)
+            {
+                Bookmaker.PayOutWinnings(race);
+            }
         }
         public string ViewRaceReport(Race race)
         {

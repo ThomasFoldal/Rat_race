@@ -23,6 +23,7 @@ namespace Rat_race
                 Console.WriteLine("[4] Create a new track");
                 Console.WriteLine("[5] Add a new rat to the race");
                 Console.WriteLine("[6] Signup a new player for betting");
+                Console.WriteLine("[7] Place a new bet");
                 string awn = Console.ReadLine();
 
                 switch (awn)
@@ -95,6 +96,32 @@ namespace Rat_race
                         Console.Write("Enter the new players Balance: ");
                         int balance = Convert.ToInt32(Console.ReadLine());
                         RaceManager.CreatePlayer(name, balance);
+                        break;
+                    case "7":
+                        if (RaceManager.Players.Count > 0 && RaceManager.Races.Count > 0 && RaceManager.Rats.Count > 0)
+                        {
+                            Console.WriteLine("Who is making the bet?");
+                            for (int i = 0; i < RaceManager.Players.Count; i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Players[i].Name);
+                            }
+                            Player player = RaceManager.Players[Convert.ToInt32(Console.ReadLine())];
+                            Console.WriteLine("What race would they like to bet on?");
+                            for (int i = 0; i < RaceManager.Races.Count; i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i].RaceID);
+                            }
+                            Race race = RaceManager.Races[Convert.ToInt32(Console.ReadLine())];
+                            Console.WriteLine("what rat would you like to bet on?");
+                            for (int i = 0; i < race.Rats.Count; i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, race.Rats[i].Name);
+                            }
+                            Rat rat = race.Rats[Convert.ToInt32(Console.ReadLine())];
+                            Console.Write("Enter the size if the bet: ");
+                            int wager = Convert.ToInt32(Console.ReadLine());
+                            RaceManager.Bookmaker.PlaceBet(race, rat, player, wager);
+                        }
                         break;
                 }
                 if (awn == "0")

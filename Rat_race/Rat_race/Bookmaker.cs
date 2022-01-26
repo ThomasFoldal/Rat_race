@@ -8,17 +8,26 @@ namespace Rat_race
 {
     public class Bookmaker
     {
-        public List<Bet> Bets { get; set; }
+        public List<Bet> Bets = new List<Bet>();
 
         // TK
         public Bet PlaceBet(Race race, Rat rat, Player player, int money)
         {
             player.PlaceBet(money);
-            return new Bet(money,player,race,rat);
+
+            Bet newBet = new Bet(money,player,race,rat);
+            Bets.Add(newBet);
+            return newBet;
         }
-        public void PayOutWinnings(Bet bet)
+        public void PayOutWinnings(Race race)
         {
-            bet.PayWinner();
+            foreach (Bet b in Bets)
+            {
+                if (b.Race == race)
+                {
+                    b.PayWinner();
+                }
+            }
         }
     }
 }
