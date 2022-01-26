@@ -8,11 +8,6 @@ namespace Rat_race
 {
     public class Bookmaker
     {
-        public Bookmaker(List<Bet> bets)
-        {
-            Bets = bets;
-        }
-
         public List<Bet> Bets { get; set; }
 
         // TK

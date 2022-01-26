@@ -8,7 +8,7 @@ namespace Rat_race
 {
     public class Player
     {
-        public Player(string name, int money, List<Bet> bets)
+        public Player(string name, int money)
         {
             Name = name;
             Money = money;

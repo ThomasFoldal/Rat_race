@@ -17,6 +17,13 @@ namespace Rat_race
         private bool _isTie;
         private string _log;
 
+        public Race(int raceID, List<Rat> rats, Track raceTrack)
+        {
+            RaceID = raceID;
+            Rats = rats;
+            RaceTrack = raceTrack;
+        }
+
         public void ConductRace()
         {
             while (_winner == null)

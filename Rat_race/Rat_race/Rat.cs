@@ -27,7 +27,7 @@ namespace Rat_race
         }
         public int MoveRat()
         {
-            _position += RNG.Range(0, 5);
+            _position += RNG.Range(1, 6);
             return _position;
         }
     }
