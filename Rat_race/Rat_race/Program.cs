@@ -10,7 +10,75 @@ namespace Rat_race
     {
         static void Main(string[] args)
         {
+            RaceManager RaceManager = new RaceManager();
 
+            while (true)
+            {
+                Console.WriteLine("[0] Quit");
+                Console.WriteLine("[1] Start a race");
+                Console.WriteLine("[2] View the last race report");
+                Console.WriteLine("[3] Create a new race");
+                Console.WriteLine("[4] Create a new track");
+                Console.WriteLine("[5] Add a new rat to the race");
+                Console.WriteLine("[6] Signup a new player for betting");
+                string awn = Console.ReadLine();
+
+                switch (awn)
+                {
+                    case "1":
+                        Console.WriteLine("Select race");
+                        for (int i = 0; i < RaceManager.Races.Count(); i++)
+                        {
+                            Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                        }
+                        int race = Convert.ToInt32(Console.ReadLine());
+                        RaceManager.CunductRace(RaceManager.Races[race]);
+                        break;
+                    case "2":
+                        Console.WriteLine("Select Race");
+                        for (int i = 0; i < RaceManager.Races.Count(); i++)
+                        {
+                            Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                        }
+                        race = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(RaceManager.ViewRaceReport(RaceManager.Races[race]));
+                        break;
+                    case "3":
+                        Console.Write("Select track");
+                        for (int i = 0; i < RaceManager.Tracks.Count(); i++)
+                        {
+                            Console.WriteLine("[{0}] {1}", i, RaceManager.Tracks[i].Name);
+                        }
+                        int track = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter race ID: ");
+                        int raceID = Convert.ToInt32(Console.ReadLine());
+                        RaceManager.CreateRace(raceID, RaceManager.Rats, RaceManager.Tracks[track]);
+                        break;
+                    case "4":
+                        Console.Write("Enter the name of the track: ");
+                        string name = Console.ReadLine();
+                        Console.Write("Enter the length of the track: ");
+                        int length = Convert.ToInt32(Console.ReadLine());
+                        RaceManager.CreateTrack(name, length);
+                        break;
+                    case "5":
+                        Console.Write("Enter the name of the rat: ");
+                        name = Console.ReadLine();
+                        RaceManager.CreateRat(name);
+                        break;
+                    case "6":
+                        Console.Write("Enter the new players name: ");
+                        name = Console.ReadLine();
+                        Console.Write("Enter the new players Balance: ");
+                        int balance = Convert.ToInt32(Console.ReadLine());
+                        RaceManager.CreatePlayer(name, balance);
+                        break;
+                }
+                if (awn == "0")
+                {
+                    break;
+                }
+            }
         }
     }
 }

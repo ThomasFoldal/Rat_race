@@ -68,11 +68,13 @@ namespace Rat_race
         }
         public string GetReport()
         {
-            if (_winner != null)
+            string report = "The race " + RaceID +" is a race between ";
+            foreach (Rat steve in Rats)
             {
-                return "And todays winner is " + _winner.Name;
+                report += steve.Name + ", ";
             }
-            return null;
+            report += "on the " + RaceTrack + " track";
+            return report;
         }
         private void LogRace(string log)
         {
