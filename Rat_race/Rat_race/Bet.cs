@@ -24,7 +24,7 @@ namespace Rat_race
         //TK
         public void PayWinner()
         {
-            _player.Money += _money;
+            _player.Money += _money*2;
         }
     }
 }
