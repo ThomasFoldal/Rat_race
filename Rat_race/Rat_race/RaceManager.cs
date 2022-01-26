@@ -15,18 +15,22 @@ namespace Rat_race
         public Bookmaker Bookmaker = new Bookmaker();
         public RaceManager()
         {
-            Rats.Add(CreateRat("Ben D. Dover"));
-            Rats.Add(CreateRat("ice Wallow Come"));
-            Players.Add(CreatePlayer("Jhon Jones Jr.", 9000000));
-            Tracks.Add(CreateTrack("Horserace Stadium", 5000));
+            CreateRat("Ben D. Dover");
+            CreateRat("ice Wallow Come");
+            CreatePlayer("Jhon Jones Jr.", 9000000);
+            CreateTrack("Cafateria", 100);
         }
         public Race CreateRace(int raceID, List<Rat> rats, Track track)
         {
-            return new Race(raceID, rats, track);
+            Race newRace = new Race(raceID, rats, track);
+            Races.Add(newRace);
+            return newRace;
         }
         public Track CreateTrack(string name, int trackLength)
         {
-            return new Track(name, trackLength);
+            Track newTrack = new Track(name, trackLength);
+            Tracks.Add(newTrack);
+            return newTrack;
         }
         public void CunductRace(Race race)
         {
@@ -38,11 +42,15 @@ namespace Rat_race
         }
         public Rat CreateRat(string name)
         {
-            return new Rat(name);
+            Rat newRat = new Rat(name);
+            Rats.Add(newRat);
+            return newRat;
         }
         public Player CreatePlayer(string name, int money)
         {
-            return new Player(name, money);
+            Player newPlayer = new Player(name, money);
+            Players.Add(newPlayer);
+            return newPlayer;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Rat_race
 {
@@ -11,6 +12,7 @@ namespace Rat_race
         static void Main(string[] args)
         {
             RaceManager RaceManager = new RaceManager();
+            File.Delete("Race Logs.txt");
 
             while (true)
             {
@@ -31,7 +33,7 @@ namespace Rat_race
                         {
                             for (int i = 0; i < RaceManager.Races.Count(); i++)
                             {
-                                Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i].RaceID);
                             }
                             int race = Convert.ToInt32(Console.ReadLine());
                             RaceManager.CunductRace(RaceManager.Races[race]);
@@ -60,7 +62,7 @@ namespace Rat_race
                     case "3":
                         if (RaceManager.Tracks.Count() > 0)
                         {
-                            Console.Write("Select track");
+                            Console.WriteLine ("Select track");
                             for (int i = 0; i < RaceManager.Tracks.Count(); i++)
                             {
                                 Console.WriteLine("[{0}] {1}", i, RaceManager.Tracks[i].Name);

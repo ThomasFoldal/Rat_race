@@ -26,6 +26,10 @@ namespace Rat_race
 
         public void ConductRace()
         {
+            foreach (Rat steve in Rats)
+            {
+                steve.ResetRat();
+            }
             while (_winner == null)
             {
                 foreach(Rat steve in Rats)
@@ -52,10 +56,11 @@ namespace Rat_race
                 _log = "";
                 foreach(Rat steve in Rats)
                 {
-                    _log += ("{0} {1} | ",steve.Name, steve.Position);
+                    _log += steve.Name + steve.Position + "|";
                 }
                 LogRace(_log);
             }
+            Console.WriteLine(_winner.Name + " Won the race");
         }
         public Rat GetWinner()
         {
@@ -73,13 +78,15 @@ namespace Rat_race
             {
                 report += steve.Name + ", ";
             }
-            report += "on the " + RaceTrack + " track";
+            report += "on the " + RaceTrack + "track";
             return report;
         }
         private void LogRace(string log)
         {
-            StreamWriter file = new StreamWriter("Race Logs", append: true);
-            file.WriteLineAsync(log);
+            using (StreamWriter file = new StreamWriter("Race Logs.txt", append: true))
+            {
+                file.WriteLine(log);
+            }
         }
     }
 }
