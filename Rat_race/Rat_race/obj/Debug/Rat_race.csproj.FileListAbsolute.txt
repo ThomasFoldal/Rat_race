@@ -1,0 +1,8 @@
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\bin\Debug\Rat_race.exe.config
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\bin\Debug\Rat_race.exe
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\bin\Debug\Rat_race.pdb
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\obj\Debug\Rat_race.csproj.AssemblyReference.cache
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\obj\Debug\Rat_race.csproj.SuggestedBindingRedirects.cache
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\obj\Debug\Rat_race.csproj.CoreCompileInputs.cache
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\obj\Debug\Rat_race.exe
+C:\Users\HFGF\Desktop\github\ThomasFoldal\Rat_race\Rat_race\Rat_race\obj\Debug\Rat_race.pdb

@@ -27,32 +27,53 @@ namespace Rat_race
                 {
                     case "1":
                         Console.WriteLine("Select race");
-                        for (int i = 0; i < RaceManager.Races.Count(); i++)
+                        if (RaceManager.Races.Count > 0)
                         {
-                            Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                            for (int i = 0; i < RaceManager.Races.Count(); i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                            }
+                            int race = Convert.ToInt32(Console.ReadLine());
+                            RaceManager.CunductRace(RaceManager.Races[race]);
                         }
-                        int race = Convert.ToInt32(Console.ReadLine());
-                        RaceManager.CunductRace(RaceManager.Races[race]);
+                        else
+                        {
+                            Console.WriteLine("There are no races at the moment");
+                        }
                         break;
                     case "2":
-                        Console.WriteLine("Select Race");
-                        for (int i = 0; i < RaceManager.Races.Count(); i++)
+                        if (RaceManager.Races.Count() > 0)
                         {
-                            Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                            Console.WriteLine("Select Race");
+                            for (int i = 0; i < RaceManager.Races.Count(); i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Races[i]);
+                            }
+                            int race = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(RaceManager.ViewRaceReport(RaceManager.Races[race]));
                         }
-                        race = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine(RaceManager.ViewRaceReport(RaceManager.Races[race]));
+                        else
+                        {
+                            Console.WriteLine("There are no races at the moment");
+                        }
                         break;
                     case "3":
-                        Console.Write("Select track");
-                        for (int i = 0; i < RaceManager.Tracks.Count(); i++)
+                        if (RaceManager.Tracks.Count() > 0)
                         {
-                            Console.WriteLine("[{0}] {1}", i, RaceManager.Tracks[i].Name);
+                            Console.Write("Select track");
+                            for (int i = 0; i < RaceManager.Tracks.Count(); i++)
+                            {
+                                Console.WriteLine("[{0}] {1}", i, RaceManager.Tracks[i].Name);
+                            }
+                            int track = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Enter race ID: ");
+                            int raceID = Convert.ToInt32(Console.ReadLine());
+                            RaceManager.CreateRace(raceID, RaceManager.Rats, RaceManager.Tracks[track]);
                         }
-                        int track = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("Enter race ID: ");
-                        int raceID = Convert.ToInt32(Console.ReadLine());
-                        RaceManager.CreateRace(raceID, RaceManager.Rats, RaceManager.Tracks[track]);
+                        else
+                        {
+                        Console.WriteLine("There are no tracks at the moment");
+                        }
                         break;
                     case "4":
                         Console.Write("Enter the name of the track: ");
