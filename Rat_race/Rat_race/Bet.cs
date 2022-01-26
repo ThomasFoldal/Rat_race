@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rat_race
 {
-    internal class Bet
+    public class Bet
     {
         private int _money;
         private Player _player;

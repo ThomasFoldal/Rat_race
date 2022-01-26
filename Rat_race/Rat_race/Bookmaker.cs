@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rat_race
 {
-    internal class Bookmaker
+    public class Bookmaker
     {
         public Bookmaker(List<Bet> bets)
         {
