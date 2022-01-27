@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Rat_race.Racer_type
+{
+    public class Canary : Animal
+    {
+        public Canary(string name)
+        {
+            Name = name;
+            ResetAnimal();
+            _size = 2;
+            _isFlying = true;
+            _isClimbing = false;
+            _isGliding = false;
+            _speed = 9;
+        }
+    }
+}
