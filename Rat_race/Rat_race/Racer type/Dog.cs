@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rat_race;
 
-namespace Rat_race.Racer_type
+namespace Racer_type
 {
     public class Dog : Animal
     {

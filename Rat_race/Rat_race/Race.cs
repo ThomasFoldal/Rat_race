@@ -38,7 +38,7 @@ namespace Rat_race
                     if (RaceTrack.TjekForShortcut(steve.Position))
                     {
                         RaceTrack.TakeSchortcut(steve);
-                        _log += steve.Name + "took a shortcut|";
+                        _log += steve.Name + " took a shortcut|";
                     }
                     steve.MoveAnimal();
 
