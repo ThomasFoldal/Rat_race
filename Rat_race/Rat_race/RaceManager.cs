@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Racer_type;
 
 namespace Rat_race
 {
     public class RaceManager
     {
+        public List<Animal> AnimalTypes = new List<Animal>() { new Canary("Canary"), new Dog("Dog"), new Eagle("Eagle"), new Rat("Rat"), new SpiderMonkey("SpiderMonkey") };
         public List<Track> Tracks = new List<Track>();
         public List<Player> Players = new List<Player>();
         public List<Race> Races = new List<Race>();
@@ -15,8 +17,8 @@ namespace Rat_race
         public Bookmaker Bookmaker = new Bookmaker();
         public RaceManager()
         {
-            CreateRat("Ben D. Dover");
-            CreateRat("ice Wallow Come");
+            CreateAnimal(new Rat("shit"), "Ben D. Dover");
+            CreateAnimal(new Rat("shit"), "ice Wallow Come");
             CreatePlayer("Jhon Jones Jr.", 9000000);
             CreateTrack("Cafateria", 100, 15, 25, 3, false, false, false, 50, 57, 5, false, false, false);
         }
@@ -78,11 +80,35 @@ namespace Rat_race
         {
             return race.GetReport();
         }
-        public Rat CreateRat(string name)
+        public Rat CreateAnimal(Rat animal, string name)
         {
             Rat newRat = new Rat(name);
             Animals.Add(newRat);
             return newRat;
+        }
+        public Canary CreateAnimal(Canary animal, string name)
+        {
+            Canary newCanary = new Canary(name);
+            Animals.Add(newCanary);
+            return newCanary;
+        }
+        public Dog CreateAnimal(Dog animal, string name)
+        {
+            Dog newDog = new Dog(name);
+            Animals.Add(newDog);
+            return newDog;
+        }
+        public Eagle CreateAnimal(Eagle animal, string name)
+        {
+            Eagle newEagle = new Eagle(name);
+            Animals.Add(newEagle);
+            return newEagle;
+        }
+        public SpiderMonkey CreateAnimal(SpiderMonkey animal, string name)
+        {
+            SpiderMonkey newSpiderMonkey = new SpiderMonkey(name);
+            Animals.Add(newSpiderMonkey);
+            return newSpiderMonkey;
         }
         public Player CreatePlayer(string name, int money)
         {

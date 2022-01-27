@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Racer_type;
 
 namespace Rat_race
 {
@@ -21,7 +22,7 @@ namespace Rat_race
                 Console.WriteLine("[2] View the last race report");
                 Console.WriteLine("[3] Create a new race");
                 Console.WriteLine("[4] Create a new track");
-                Console.WriteLine("[5] Add a new rat to the race");
+                Console.WriteLine("[5] Add a new animal to the race");
                 Console.WriteLine("[6] Signup a new player for betting");
                 Console.WriteLine("[7] Place a new bet");
                 string awn = Console.ReadLine();
@@ -86,9 +87,32 @@ namespace Rat_race
                         RaceManager.CreateTrack(name, length);
                         break;
                     case "5":
-                        Console.Write("Enter the name of the rat: ");
+                        Console.WriteLine("Select the animal you want to enter");
+                        for (int i = 0; i < RaceManager.AnimalTypes.Count(); i++)
+                        {
+                            Console.WriteLine("[{0}] {1}", i, RaceManager.AnimalTypes[i].Name);
+                        }
+                        int type = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter the name of the "+ RaceManager.AnimalTypes[type].Name +": ");
                         name = Console.ReadLine();
-                        RaceManager.CreateRat(name);
+                        switch (type)
+                        {
+                            case 0:
+                                RaceManager.CreateAnimal(new Canary("fuck"), name);
+                                break;
+                            case 1:
+                                RaceManager.CreateAnimal(new Dog("fuck"), name);
+                                break;
+                            case 2:
+                                RaceManager.CreateAnimal(new Eagle("fuck"), name);
+                                break;
+                            case 3:
+                                RaceManager.CreateAnimal(new Rat("fuck"), name);
+                                break;
+                            case 4:
+                                RaceManager.CreateAnimal(new SpiderMonkey("fuck"), name);
+                                break;
+                        }
                         break;
                     case "6":
                         Console.Write("Enter the new players name: ");
