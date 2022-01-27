@@ -11,7 +11,7 @@ namespace Rat_race
         public List<Bet> Bets = new List<Bet>();
 
         // TK
-        public Bet PlaceBet(Race race, Rat rat, Player player, int money)
+        public Bet PlaceBet(Race race, Animal rat, Player player, int money)
         {
             player.PlaceBet(money);
 

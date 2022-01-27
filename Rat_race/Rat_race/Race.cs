@@ -10,31 +10,38 @@ namespace Rat_race
     public class Race
     {
         public int RaceID;
-        public List<Rat> Rats = new List<Rat>();
+        public List<Animal> Animals = new List<Animal>();
         public Track RaceTrack;
-        private Rat _winner;
-        private List<Rat> _tiePodium = new List<Rat>();
+        private Animal _winner;
+        private List<Animal> _tiePodium = new List<Animal>();
         private bool _isTie;
         private string _log;
 
-        public Race(int raceID, List<Rat> rats, Track raceTrack)
+        public Race(int raceID, List<Animal> rats, Track raceTrack)
         {
             RaceID = raceID;
-            Rats = rats;
+            Animals = rats;
             RaceTrack = raceTrack;
         }
 
         public void ConductRace()
         {
-            foreach (Rat steve in Rats)
+            foreach (Animal steve in Animals)
             {
-                steve.ResetRat();
+                steve.ResetAnimal();
             }
             while (_winner == null)
             {
-                foreach(Rat steve in Rats)
+                _log = "";
+                foreach (Animal steve in Animals)
                 {
-                    steve.MoveRat();
+                    if (RaceTrack.TjekForShortcut(steve.Position))
+                    {
+                        RaceTrack.TakeSchortcut(steve);
+                        _log += steve.Name + "took a shortcut|";
+                    }
+                    steve.MoveAnimal();
+
                     if (_winner == null && steve.Position >= RaceTrack.TrackLength)
                     {
                         _winner = steve;
@@ -53,8 +60,7 @@ namespace Rat_race
                         _isTie = true;
                     }
                 }
-                _log = "";
-                foreach(Rat steve in Rats)
+                foreach (Animal steve in Animals)
                 {
                     _log += steve.Name + steve.Position + "|";
                 }
@@ -62,10 +68,10 @@ namespace Rat_race
             }
             Console.WriteLine(_winner.Name + " Won the race");
         }
-        public Rat GetWinner()
+        public Animal GetWinner()
         {
             if (_winner != null)
-            { 
+            {
                 return _winner;
             }
             Console.WriteLine("No winner has been found");
@@ -73,8 +79,8 @@ namespace Rat_race
         }
         public string GetReport()
         {
-            string report = "The race " + RaceID +" is a race between ";
-            foreach (Rat steve in Rats)
+            string report = "The race " + RaceID + " is a race between ";
+            foreach (Animal steve in Animals)
             {
                 report += steve.Name + ", ";
             }

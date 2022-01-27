@@ -11,20 +11,20 @@ namespace Rat_race
         private int _money;
         private Player _player;
         public Race Race;
-        private Rat _rat;
+        private Animal _dyr;
 
-        public Bet(int money, Player player, Race race, Rat rat)
+        public Bet(int money, Player player, Race race, Animal dyr)
         {
             _money = money;
             _player = player;
             Race = race;
-            _rat = rat;
+            _dyr = dyr;
         }
         //TK
         public void PayWinner()
         {
-            Rat winner = Race.GetWinner();
-            if(_rat == winner)
+            Animal winner = Race.GetWinner();
+            if(_dyr == winner)
             {
             _player.Money += _money;
                 Console.WriteLine("{0} won {1}", _player, _money);
