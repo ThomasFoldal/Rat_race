@@ -15,6 +15,7 @@ namespace Rat_race
         public bool _isClimbing;
         public bool _isGliding;
         protected int _speed;
+        public List<Equipment> Items;
 
         public int Position
         {
@@ -27,7 +28,15 @@ namespace Rat_race
         }
         public int MoveAnimal()
         {
-            _position += RNG.Range(1, _speed);
+            int speed = _speed;
+            foreach (var item in Items)
+            {
+                if (item.IsInUse)
+                {
+                    speed += item.BonusSpeed;
+                }
+            }
+            _position += RNG.Range(1, speed);
             return _position;
         }
     }

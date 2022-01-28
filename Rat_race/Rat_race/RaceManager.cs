@@ -10,6 +10,7 @@ namespace Rat_race
     public class RaceManager
     {
         public List<Animal> AnimalTypes = new List<Animal>() { new Canary("Canary"), new Dog("Dog"), new Eagle("Eagle"), new Rat("Rat"), new SpiderMonkey("SpiderMonkey") };
+        public List<Equipment> Equipments = new List<Equipment>() { new BioMechanicalHeart(), new CarrotOnStick(), new RocketEngine(), new RunningShoes(), new SpeedStripes() };
         public List<Track> Tracks = new List<Track>();
         public List<Player> Players = new List<Player>();
         public List<Race> Races = new List<Race>();

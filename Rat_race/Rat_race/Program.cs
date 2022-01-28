@@ -25,6 +25,7 @@ namespace Rat_race
                 Console.WriteLine("[5] Add a new animal to the race");
                 Console.WriteLine("[6] Signup a new player for betting");
                 Console.WriteLine("[7] Place a new bet");
+                Console.WriteLine("[8] Add Equipment To Racer");
                 string awn = Console.ReadLine();
 
                 switch (awn)
@@ -145,6 +146,46 @@ namespace Rat_race
                             Console.Write("Enter the size if the bet: ");
                             int wager = Convert.ToInt32(Console.ReadLine());
                             RaceManager.Bookmaker.PlaceBet(race, rat, player, wager);
+                        }
+                        break;
+                    case "8":
+                        Console.WriteLine(" - Please Select Which Animal Gets an Item");
+                        for (int i = 0; i < RaceManager.Animals.Count; i++)
+                        {
+                            Console.WriteLine("{0}: {1}",i,RaceManager.Animals[i].Name);
+                        }
+                        int luckyAnimal = int.Parse(Console.ReadLine());
+                        Console.WriteLine(" - Please Select Which Item To Give");
+                        for (int i = 0; i < RaceManager.Equipments.Count; i++)
+                        {
+                            Console.WriteLine("{0}: {1}", i, RaceManager.Equipments[i].Name);
+                        }
+                        int luckyItem = int.Parse(Console.ReadLine());
+
+                        switch (luckyItem)
+                        {
+                            case 0:
+                                BioMechanicalHeart bioMechanicalHeart = new BioMechanicalHeart(RaceManager.Animals[luckyAnimal]);
+                                RaceManager.Animals[luckyAnimal].Items.Add(bioMechanicalHeart);
+                                break;
+                            case 1:
+                                CarrotOnStick carrotOnStick = new CarrotOnStick(RaceManager.Animals[luckyAnimal]);
+                                RaceManager.Animals[luckyAnimal].Items.Add(carrotOnStick);
+                                break;
+                            case 2:
+                                RocketEngine rocketEngine = new RocketEngine(RaceManager.Animals[luckyAnimal]);
+                                RaceManager.Animals[luckyAnimal].Items.Add(rocketEngine);
+                                break;
+                            case 3:
+                                RunningShoes runningShoes = new RunningShoes(RaceManager.Animals[luckyAnimal]);
+                                RaceManager.Animals[luckyAnimal].Items.Add(runningShoes);
+                                break;
+                            case 4:
+                                SpeedStripes speedStripes = new SpeedStripes(RaceManager.Animals[luckyAnimal]);
+                                RaceManager.Animals[luckyAnimal].Items.Add(speedStripes);
+                                break;
+                            default:
+                                break;
                         }
                         break;
                 }

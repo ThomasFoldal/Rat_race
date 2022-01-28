@@ -18,6 +18,7 @@ namespace Racer_type
             _isClimbing = false;
             _isGliding = false;
             _speed = 6;
+            Items = new List<Equipment>() { };
         }
     }
 }
