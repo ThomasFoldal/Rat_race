@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Bet.cs" />
     <Compile Include="Bookmaker.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="Equipments.cs" />
+    <Compile Include="IEquipable.cs" />
     <Compile Include="Racer type\Animal.cs" />
     <Compile Include="Racer type\Canary.cs" />
     <Compile Include="Racer type\Dog.cs" />
